@@ -23,3 +23,8 @@ Usando la herramienta de línea de comandos de Docker construya la imagen:
 ```bash 
 docker build --tag docker-hello-image .
 ```
+
+iniciando contenedor
+```bash
+docker run -d -p 34000:33025 --name firstdockercontainer docker-hello-image
+```
