@@ -16,3 +16,10 @@ java -cp "target/classes;target/dependency/*" com.escuelaing.edu.co.distribuited
 ```bash
 java -cp "target/classes:target/dependency/*" com.escuelaing.edu.co.distribuited_systems.DistribuitedSystemsApplication
 ```
+
+Usando la herramienta de línea de comandos de Docker construya la imagen:
+### Comandos Docker
+
+```bash 
+docker build --tag docker-hello-image .
+```
