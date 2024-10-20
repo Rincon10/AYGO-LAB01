@@ -19,9 +19,7 @@ public class RegisterServiceImpl implements RegisterService {
     private UsersClientRest usersClientRest;
 
     @Override
-    public ResponseDTO<User> registerName(String name) {
-        NameRequest nameRequest = NameRequest.builder().name(name).build();
-
+    public ResponseDTO<User> registerName(NameRequest nameRequest) {
         ResponseDTO<User> userResponseDTO = usersClientRest.registerUser(nameRequest);
         return userResponseDTO;
     }
