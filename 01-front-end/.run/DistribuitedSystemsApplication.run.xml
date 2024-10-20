@@ -1,0 +1,18 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="DistribuitedSystemsApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+    <envs>
+      <env name="URL_EUREKA_SERVER" value="http://localhost:8761/eureka" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.escuelaing.edu.co.distribuited_systems.DistribuitedSystemsApplication" />
+    <module name="distribuited-systems" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.escuelaing.edu.co.distribuited_systems.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
