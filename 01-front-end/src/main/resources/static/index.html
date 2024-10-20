@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Nombre</title>
+</head>
+<body>
+<div>
+    <h1>Registro de Nombre</h1>
+</div>
+
+
+<form id="nameForm" onsubmit="submitName(event)">
+    <label for="nameInput">Nombre:</label>
+    <input type="text" id="nameInput" required>
+    <button type="submit">Enviar</button>
+</form>
+<style>
+       body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+form {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* Ancho máximo */
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 12px;
+    color: #555;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s; /* Transición suave */
+}
+
+input[type="text"]:focus {
+    border-color: #28a745; /* Cambio de color al enfocar */
+    outline: none; /* Elimina el borde por defecto del navegador */
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+button:active {
+    transform: scale(0.95); /* Efecto al hacer clic */
+}
+
+
+
+
+</style>
+<!-- Importar el script externo -->
+<script>
+const getNameInputValue = () => document.getElementById("nameInput").value;
+
+const createRequestBody = (name) => JSON.stringify({ name });
+
+const handleResponse = async (response) => {
+  const data = await response.json();
+  alert(`Response: ${data.message} at ${data.timestamp}`);
+};
+
+const handleError = (error) => {
+  console.error("Error:", error);
+};
+
+const sendRequest = async (name) => {
+  const response = await fetch("/api/register", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: createRequestBody(name),
+  });
+  return response;
+};
+
+const submitName = async (event) => {
+  event.preventDefault(); // Evitar la recarga de la página
+
+  const name = getNameInputValue();
+
+  try {
+    const response = await sendRequest(name);
+    await handleResponse(response);
+  } catch (error) {
+    handleError(error);
+  }
+};
+
+
+
+</script>
+</body>
+</html>
