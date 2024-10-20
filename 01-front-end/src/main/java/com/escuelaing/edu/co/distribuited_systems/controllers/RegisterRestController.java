@@ -1,6 +1,8 @@
 package com.escuelaing.edu.co.distribuited_systems.controllers;
 
+import com.escuelaing.edu.co.distribuited_systems.services.RegisterService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -11,5 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Slf4j
-public class UserRestController {
+public class RegisterRestController {
+    @Autowired
+    private RegisterService registerService;
+
+
+
+
 }
