@@ -1,4 +1,4 @@
-FROM openjdk:17
+FROM openjdk:22
 WORKDIR /usrapp/bin
 ENV PORT=33025
 COPY /target/classes /usrapp/bin/classes
