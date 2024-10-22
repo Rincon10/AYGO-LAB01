@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
  * @version 1.0
  * @since 10/20/2024
  */
-@FeignClient(name = "servicio-usuarios")
-public interface UsersClientRest {
+@FeignClient(name = "servicio-gateway")
+public interface GatewayClientRest {
 
-    @PostMapping("/api/register")
+    @PostMapping("/api/users/register")
     ResponseDTO<User> registerUser(@RequestBody NameRequest nameRequest);
 }
