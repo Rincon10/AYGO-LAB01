@@ -9,13 +9,9 @@ import java.util.Date;
  * @version 1.0
  * @since 10/20/2024
  */
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
+@Data
 public class User {
-
+    private String id;
     private String name;
     private Date timeStamp;
 }
