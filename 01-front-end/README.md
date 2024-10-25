@@ -59,5 +59,5 @@ docker build --tag docker-hello-image .
 
 iniciando contenedor
 ```bash
-docker run -d -p 34000:33025 --name firstdockercontainer docker-hello-image`
+docker run -d -p 3000:33025 --name firstdockercontainer docker-hello-image`
 ```
