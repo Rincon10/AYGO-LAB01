@@ -118,6 +118,7 @@ sudo docker run -d -p 8761:8761 --name instancia1-eureka rincon10/servicio-eurek
 
 7. Abra los puertos de entrada del security group de la máxima virtual para acceder al servicio
 
-si todo sale bien podra acceder a la instancia de aws, como se ve en la siguiente imagen
+en nuestro caso la url que se expone es el siguiente http://ec2-3-80-71-218.compute-1.amazonaws.com, si todo sale bien podra acceder a la instancia de aws, como se deberia ver como en la siguiente imagen
 
 
+![alt text](../docs/img/07-eureka-aws.png)
