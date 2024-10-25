@@ -82,3 +82,42 @@ Para publicar la imagen en Docker Hub, sigue estos pasos:
 ```bash
 docker login
 ```
+
+y luego 
+
+```bash
+docker push rincon10/servicio-eureka:1.0
+```
+
+### Configuracion en AWS
+
+1. Acceda a la máquina virtual
+2. Instale Docker
+
+```bash
+sudo yum update -y
+sudo yum install docker
+```
+3. Inicie el servicio de docker
+
+```bash
+sudo service docker start
+```
+4. Configure su usuario en el grupo de docker para no tener que ingresar “sudo” cada vez que invoca un comando
+
+```bash
+sudo usermod -a -G docker ec2-user
+```
+
+5. Desconectese de la máquina virtual e ingrese nuevamente para que la configuración de grupos de usuarios tenga efecto.
+6. A partir de la imagen creada en Dockerhub cree una instancia de un contenedor docker independiente de la consola (opción “-d”) y con el puerto 6000 enlazado a un puerto físico de su máquina (opción -p):
+
+```bash
+sudo docker run -d -p 8761:8761 --name instancia1-eureka rincon10/servicio-eureka:1.0 
+```
+
+7. Abra los puertos de entrada del security group de la máxima virtual para acceder al servicio
+
+si todo sale bien podra acceder a la instancia de aws, como se ve en la siguiente imagen
+
+
