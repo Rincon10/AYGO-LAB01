@@ -39,22 +39,46 @@ java -cp "target/classes:target/dependency/*" com.escuelaing.edu.co.distribuited
 
 si, todo ejecuta de manera correcta deberia ver el siguiente log
 
-![alt text](../docs/img/02-cmd-front.png)
+![alt text](../docs/img/04-cmd-eureka.png)
 
-y si accedemos a el puerto 8090, veremos todos los servicios suscritos
+y si accedemos a el puerto 8761, veremos todos los servicios suscritos
 
-![alt text](../docs/img/03-front.png)
+![!\[alt text\](../docs/img/03-front.png)](../docs/img/05-eureka.png)
 
 ## Manual de creacion de imagen docker
 
-Usando la herramienta de línea de comandos de Docker construya la imagen:
+vamos a crear la imagen docker:
 ### Comandos Docker
 
 ```bash 
-docker build --tag docker-hello-image .
+docker build --tag miusuario/servicio-eureka:1.0 .
 ```
 
 iniciando contenedor
 ```bash
-docker run -d -p 34000:33025 --name firstdockercontainer docker-hello-image`
+docker run -d -p <puerto_host>:<puerto_contenedor> --name nombre_instancia <tu_usuario_docker>/<nombre_imagen>:<versión>
+```
+
+entonces ejecutamos 
+
+```bash
+docker run -d -p 8761:8761 --name instancia1-eureka rincon10/servicio-eureka:1.0 
+```
+
+
+si todo sale bien veriamos que el contenedor se esta ejecutando de manera correcta con 
+
+```bash
+docker ps -a
+```
+
+![alt text](../docs/img/06-eureka-docker.png)
+
+
+### publicando la imagen
+
+Para publicar la imagen en Docker Hub, sigue estos pasos:
+
+```bash
+docker login
 ```
