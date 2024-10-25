@@ -42,5 +42,5 @@ A continuación se detalla la configuracion de los proyectos
 
 1. [Configuración y ejecución de front end](01-front-end/README.md)
 2. [Configuración y ejecución discovery](02-servicio-eureka-server/README.md)
-
+3. [Configuración y ejecución api gateway](03-servicio-gateway/README.md)
 ### Video Funcionamiento Arquitectura propuesta
