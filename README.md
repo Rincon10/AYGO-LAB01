@@ -34,5 +34,13 @@ Workshop on Introduction to Virtualization and Distributed Programming
 - **Demostración en Video:** Un video corto (5-10 minutos) que demuestre el proceso de despliegue y la funcionalidad de la aplicación, mostrando tanto el registro de nombres como la recuperación de la lista de llegadas.
 ![](docs/img/01-ARQUITECTURA-PROPUESTA.png)
 
-## Desarrollo
 
+## Desarrollo 
+
+### Configuraciones y despliegues
+A continuación se detalla la configuracion de los proyectos
+
+1. [Configuración y ejecución de front end](01-front-end/README.md)
+2. [Configuración y ejecución discovery](02-servicio-eureka-server/README.md)
+
+### Video Funcionamiento Arquitectura propuesta
