@@ -44,8 +44,7 @@ si, todo ejecuta de manera correcta deberia ver el siguiente log
 
 ![alt text](../docs/img/08-cmd-gateway.png)
 
-y si accedemos a el puerto 8090 /actuator/health, veremos todos los servicios suscritos
-
+y si accedemos a el puerto 8090 /actuator/health, veremos todos la salud del servicio
 ![alt text](../docs/img/09-api_gateway.png)
 
 ## Manual de creacion de imagen docker

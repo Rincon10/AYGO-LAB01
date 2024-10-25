@@ -51,6 +51,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -96,5 +97,12 @@
 			</plugin>
 		</plugins>
 	</build>
-
+	<profiles>
+		<profile>
+			<id>no-mongo</id>
+			<properties>
+				<spring.data.mongodb.uri>none</spring.data.mongodb.uri>
+			</properties>
+		</profile>
+	</profiles>
 </project>
