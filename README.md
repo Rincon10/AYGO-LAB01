@@ -52,4 +52,4 @@ A continuación se detalla la configuracion de los proyectos
 ![alt text](docs/img/00.png)
 
 
-Video de funcionamiento de la arquitectura propuesta en AWS [aqui]()
+Video de funcionamiento de la arquitectura propuesta en AWS [aqui](https://www.youtube.com/watch?v=fwymCPU1cKo)
