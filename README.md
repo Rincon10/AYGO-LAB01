@@ -47,4 +47,9 @@ A continuación se detalla la configuracion de los proyectos
 
 ### Video Funcionamiento Arquitectura propuesta
 
+## Instancias en ejecucion
+
+![alt text](docs/img/00.png)
+
+
 Video de funcionamiento de la arquitectura propuesta en AWS [aqui]()
