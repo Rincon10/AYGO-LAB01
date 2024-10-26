@@ -3,7 +3,7 @@ spring:
     gateway:
       routes:
         - id: servicio-usuarios
-          uri: lb://servicio-usuarios
+          uri: ${URL_USERS}
           predicates:
             - Path=/api/users/**
           filters:

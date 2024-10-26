@@ -49,30 +49,23 @@ si, todo ejecuta de manera correcta deberia ver el siguiente log
 vamos a crear la imagen docker:
 ### Comandos Docker
 
+
+### windows
 ```bash 
-docker build --tag miusuario/servicio-gateway:1.0 .
-docker build --tag rincon10/servicio-gateway:1.0 .
+URL_EUREKA_SERVER=http://host.docker.internal:8761/eureka URL_MONGO=mongodb://host.docker.internal:27017/mydatabase TAG_VERSION=1.0 docker-compose up --build
 ```
 
-iniciando contenedor
-```bash
-docker run -d -p <puerto_host>:<puerto_contenedor> --name nombre_instancia <tu_usuario_docker>/<nombre_imagen>:<versión>
+### linux
+```bash 
+URL_EUREKA_SERVER=http://localhost:8761/eureka URL_MONGO=mongodb://localhost:27017/mydatabase TAG_VERSION=1.0 docker-compose up --build
 ```
 
-entonces ejecutamos
-
-```bash
-docker run -d -p 8090:8090 --name instancia1-gateway -e URL_EUREKA_SERVER=http://host.docker.internal:8761/eureka rincon10/servicio-gateway:1.0
-```
-
-
-si todo sale bien veriamos que el contenedor se esta ejecutando de manera correcta
+para iniciar la imagen ejecutamos
 
 ```bash
-docker ps -a
+docker run -d --name instancia-back-end rincon10/servicio-monolito:1.0
 ```
 
-![alt text](../docs/img/10-gateway-docker.png)
 
 
 ### publicando la imagen
@@ -86,7 +79,7 @@ docker login
 y luego
 
 ```bash
-docker push rincon10/servicio-gateway:1.0
+docker push rincon10/servicio-monolito:1.0
 ```
 
 ### Configuracion en AWS
@@ -115,7 +108,7 @@ sudo usermod -a -G docker ec2-user
 
 
 ```bash
-sudo docker run -d -p 8090:8090 --network="host" --name instancia-1-gateway -e URL_EUREKA_SERVER=http://localhost:8761/eureka rincon10/servicio-gateway:1.0
+sudo docker run -d -p 8092:8092 --network="host" --name instancia-back -e URL_EUREKA_SERVER=http://ec2-18-207-113-116.compute-1.amazonaws.com:8761/eureka -e URL_MONGO=mongodb://localhost:27017/mydatabase rincon10/servicio-monolito:1.0
 ```
 
 7. Abra los puertos de entrada del security group de la máxima virtual para acceder al servicio
@@ -123,4 +116,7 @@ sudo docker run -d -p 8090:8090 --network="host" --name instancia-1-gateway -e U
 en nuestro caso la url que se expone es el siguiente http://ec2-3-80-71-218.compute-1.amazonaws.com, si todo sale bien podra acceder a la instancia de aws, como se deberia ver como en la siguiente imagen
 
 
-![alt text](../docs/img/11-gateway-aws.png)
+![alt text](../docs/img/13-mono-aws-1.png)
+
+![alt text](../docs/img/13-mono-aws-2.png)
+

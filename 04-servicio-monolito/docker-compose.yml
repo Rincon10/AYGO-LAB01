@@ -1,22 +1,36 @@
 version: '2'
 services:
-  web:
+  db:
+      image: mongo:3.6.1
+      container_name: db
+      volumes:
+        - mongodb:/data/db
+        - mongodb_config:/data/configdb
+      ports:
+        - 27017:27017
+      command: mongod
+
+
+  app:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: web
+      args:
+        URL_EUREKA_SERVER: ${URL_EUREKA_SERVER}
+        URL_MONGO: ${URL_MONGO}
+        TAG_VERSION: ${TAG_VERSION}
+    container_name: app
+    depends_on:
+      - db
+
+    image: rincon10/servicio-monolito:${TAG_VERSION}
     ports:
-      - "8092:8092"
-  db:
-    image: mongo:3.6.1
-    container_name: db
-    volumes:
-      - mongodb:/data/db
-      - mongodb_config:/data/configdb
-    ports:
-      - 27017:27017
-    command: mongod
+      - 8092:8092
+    environment:
+      - URL_EUREKA_SERVER=${URL_EUREKA_SERVER}
+      - URL_MONGO=${URL_MONGO}
 
 volumes:
   mongodb:
   mongodb_config:
+

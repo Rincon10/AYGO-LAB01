@@ -65,7 +65,7 @@ docker run -d -p <puerto_host>:<puerto_contenedor> --name nombre_instancia <tu_u
 entonces ejecutamos
 
 ```bash
-docker run -d -p 8090:8090 --name instancia1-gateway -e URL_EUREKA_SERVER=http://host.docker.internal:8761/eureka rincon10/servicio-gateway:1.0
+docker run -d -p 8090:8090 --name instancia1-gateway -e URL_EUREKA_SERVER=http://host.docker.internal:8761/eureka rincon10/servicio-gateway:1.0 
 ```
 
 
@@ -118,8 +118,14 @@ sudo usermod -a -G docker ec2-user
 
 
 ```bash
-sudo docker run -d -p 8090:8090 --network="host" --name instancia-1-gateway -e URL_EUREKA_SERVER=http://localhost:8761/eureka rincon10/servicio-gateway:1.0
+sudo docker run -d -p 8090:8090 --name instancia-1-gateway -e URL_EUREKA_SERVER=http://localhost:8761/eureka rincon10/servicio-gateway:1.0
+
+o
+
+sudo docker run -d --network="host" --name instancia-1-gateway -e URL_EUREKA_SERVER=http://localhost:8761/eureka -e URL_USERS=http://ec2-44-204-65-163.compute-1.amazonaws.com:8092 rincon10/servicio-gateway:1.0
 ```
+
+
 
 7. Abra los puertos de entrada del security group de la máxima virtual para acceder al servicio
 

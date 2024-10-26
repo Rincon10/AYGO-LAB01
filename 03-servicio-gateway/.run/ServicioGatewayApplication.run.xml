@@ -2,6 +2,7 @@
   <configuration default="false" name="ServicioGatewayApplication" type="Application" factoryName="Application" nameIsGenerated="true">
     <envs>
       <env name="URL_EUREKA_SERVER" value="http://localhost:8761/eureka" />
+      <env name="URL_USERS" value="http://localhost:8092" />
     </envs>
     <option name="MAIN_CLASS_NAME" value="com.escuelaing.edu.co.distribuited_systems.servicio_gateway.ServicioGatewayApplication" />
     <module name="servicio-gateway" />
